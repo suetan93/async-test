@@ -1,6 +1,7 @@
-const generateNumLessThan = (maxNum) => {
+const generateRandomNum = (maxNum) => {
   return Math.random() * maxNum;
 };
+
 
 const getNumLessThanTen = (callback) => {
   setTimeout(() => {

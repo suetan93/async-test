@@ -9,5 +9,52 @@ CONSTRAINTS
 - No editing any file except main.js (comments are the exception)
 */
 
+const getNumLessThanTen = require('./getNumLessThan.js')
+const waitOneSecond = require('./waitOneSecond.js')
+const writeToFile = require('./writeToHardDrive.js')
+
+//call getNumLessThanTen, pass a callback function
+ //if err received
+   //console log it
+   //otherwise call waitOnesecond three times
+     //if err, log it, if not call waitonesec again
+    //after third time, call write to file
+      //if err log,
+      //otherwise console log i am done
+
+
+  getNumLessThanTen((err, num) => {
+    if (err) {
+      console.log(err)
+    } else {
+      waitOneSecond((err, success) => {
+        if (err) {
+          console.log(err)
+        } else {
+          waitOneSecond((err, success) => {
+            if (err) {
+              console.log(err)
+            } else {
+              waitOneSecond((err, success) => {
+                if (err) {
+                  console.log(err)
+                } else {
+                  writeToFile(num, (err) => {
+                    if (err) {
+                      console.log(err)
+                    } else {
+                      console.log(num)
+                      console.log("I'm done!")
+                    }
+                  })
+                }
+              })
+            }
+          })
+        }
+      })
+    }
+  })
+
 
 
